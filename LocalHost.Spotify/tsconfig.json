@@ -1,0 +1,19 @@
+﻿{
+  "compilerOptions": {
+    "outDir": "./wwwroot/",
+    "noEmit": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "lib": [ "es6", "dom" ],
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}

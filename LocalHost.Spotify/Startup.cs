@@ -70,6 +70,7 @@ namespace LocalHost.Spotify
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("{**slug}", "Index", "Home");
             });
         }
     }

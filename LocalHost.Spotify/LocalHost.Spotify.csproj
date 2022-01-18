@@ -1,11 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Scripts\index.js" />
+    <None Remove="Scripts\App\AppConfig.tsx" />
+    <None Remove="Scripts\Framework\Modules\Message.tsx" />
+    <None Remove="Scripts\App\Pages\Dashboard.tsx" />
+    <None Remove="Scripts\Dependencies\Pages\DependencyOverview.tsx" />
+    <None Remove="Scripts\Framework\Containers\Layout.tsx" />
+    <None Remove="Scripts\Framework\Containers\Module.tsx" />
+    <None Remove="Scripts\Framework\Containers\page.tsx" />
+    <None Remove="Scripts\Client\index.ts" />
+    <None Remove="Scripts\Models\index.ts" />
+    <None Remove="Scripts\Models\_config.ts" />
+    <None Remove="Scripts\Models\_context.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,6 +24,29 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Framework\Modules\Message\MessageView.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\App\Pages\Dashboard\DashboardView.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\Dependencies\Pages\DependencyOverview.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\Framework\Containers\Module.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\Framework\Containers\Page.tsx" />
+    <TypeScriptCompile Include="Scripts\Framework\AppConfig.tsx" />
+    <TypeScriptCompile Include="Scripts\Client\index.ts" />
+    <TypeScriptCompile Include="Scripts\Models\_config.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\Models\index.ts" />
+    <TypeScriptCompile Include="Scripts\Models\_context.ts" />
   </ItemGroup>
 
 </Project>

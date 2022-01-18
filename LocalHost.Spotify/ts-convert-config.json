@@ -1,0 +1,16 @@
+{
+  "include": [
+    "./Models/**/*.cs"
+  ],
+  "exclude": [
+    "./Models/**/*.preset.cs"
+  ],
+  "namespace": null,
+  "output": "./Scripts/Models/_api.ts",
+  "camelCase": true,
+  "camelCaseEnums": false,
+  "numericEnums": false,
+  "stringLiteralTypesInsteadOfEnums": false,
+  "customTypeTranslations": {
+  }
+}
