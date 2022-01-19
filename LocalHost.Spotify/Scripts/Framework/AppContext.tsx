@@ -5,6 +5,7 @@ import { IAppState } from '../Models';
 
 var initial: IAppState = {
     currentUser: null,
+    modules: []
 }
 
 var AppContext: React.Context<IAppState> = null;
