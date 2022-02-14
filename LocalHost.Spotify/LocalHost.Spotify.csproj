@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Remove="Scripts\App\AppConfig.tsx" />
+    <None Remove="Scripts\App\Pages\Artists\ArtistsView.tsx" />
     <None Remove="Scripts\Framework\Modules\Message.tsx" />
     <None Remove="Scripts\App\Pages\Dashboard.tsx" />
     <None Remove="Scripts\Dependencies\Pages\DependencyOverview.tsx" />
@@ -27,6 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\App\Pages\Artists\ArtistsView.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Scripts\Framework\Modules\Message\MessageView.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>

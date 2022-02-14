@@ -34,7 +34,48 @@ namespace LocalHost.Spotify
                     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = "Spotify";
                 })
-                .AddCookie()
+                .AddCookie(options => {
+                    options.Events = new CookieAuthenticationEvents
+                    {
+                        OnValidatePrincipal = context =>
+                        {
+
+                            //context.RejectPrincipal();
+                            if (context.Properties.Items.ContainsKey(".Token.expires_at"))
+                            {
+                                var expire = DateTime.Parse(context.Properties.Items[".Token.expires_at"]);
+                                var expirteLimit = expire.AddMinutes(-5);
+                                var now = DateTime.Now;
+                                if (now > expirteLimit) //TODO:change to check expires in next 5 mintues.
+                                {
+                                    // Log.Debug($"Access token has expired, user: {context.HttpContext.User.Identity.Name}");
+
+                                    //var restClient = new RestSharp.RestClient(tractionConfig.BaseUrl);
+                                    //var restRequest = new RestSharp.RestRequest($"/connect/token", RestSharp.Method.POST);
+
+                                    //restRequest.AddParameter("grant_type", "refresh_token");
+                                    //restRequest.AddParameter("client_id", tractionConfig.ClientId);
+                                    //restRequest.AddParameter("client_secret", tractionConfig.ClientSecret);
+                                    //restRequest.AddParameter("refresh_token", context.Properties.Items[".Token.refresh_token"]);
+
+                                    //var restResponse = restClient.Execute<AuthenticationHelper.AuthenticationResponse>(restRequest);
+
+                                    //if (restResponse.IsSuccessful && restResponse.Data != null)
+                                    //{
+                                    //    var expiresAt = now.AddSeconds(restResponse.Data.ExpiresIn).ToString("yyyy-MM-ddTHH:mm:ss.ffffffzzz");
+
+                                    //    context.Properties.Items[".Token.expires_at"] = expiresAt;
+                                    //    context.Properties.Items[".Token.access_token"] = restResponse.Data.AccessToken;
+                                    //    context.ShouldRenew = true;
+                                    //}
+
+                                    context.RejectPrincipal();
+                                }
+                            }
+                            return Task.FromResult(0);
+                        }
+                    };
+                })
                 .AddOAuth("Spotify", options => {
                     options.AuthorizationEndpoint = spotify.Authority + "authorize";
                     options.TokenEndpoint = spotify.Authority + "api/token";
