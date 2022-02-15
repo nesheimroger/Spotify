@@ -9,29 +9,24 @@ import Artists from "./Pages/Artists/ArtistsView";
 import { IAppConfig, IAppMenuItem } from "../Models";
 
 import '../../Styles/index.less';
-import MessageView, { IMessageProps } from "../Framework/Modules/Message/MessageView";
+import Message from "./Modules/Message";
 
 //@ts-ignore
 var externalConfig = window.config as IAppConfig;
 
 var config: IAppConfig = {
     routes: [
-        { key: "dashboard", path: "/", element: <Dashboard /> },
-        { key: "artists", path: "/artists", element: <Artists /> },
+        { id: "dashboard", path: "/", element: <Dashboard /> },
+        { id: "artists", path: "/artists", element: <Artists /> },
         ...(externalConfig.routes)
     ],
     menus: [
-        { key: "dashboard", title: "Dashboard", route: "/" } as IAppMenuItem,
-        { key: "artists", title: "Artists", route: "/artists" } as IAppMenuItem,
+        { id: "dashboard", title: "Dashboard", route: "/" } as IAppMenuItem,
+        { id: "artists", title: "Artists", route: "/artists" } as IAppMenuItem,
         ...(externalConfig.menus)
     ],
     modules: [
-        {
-            key: "message",
-            title: "Message",
-            configurator: null,
-            renderer: (props: IMessageProps) => <MessageView {...props} />
-        },
+        Message,
         ...(externalConfig.modules)
     ]
 }

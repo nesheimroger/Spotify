@@ -1,27 +1,27 @@
 ﻿export interface IAppRoute {
-    key: string,
+    id: string,
     path: string;
     element: React.ReactNode,
     children?: React.ReactNode 
 }
 
 export interface IAppMenuGroup {
-    key: string;
+    id: string;
     title: string;
     items: IAppMenuItem[];
 }
 
 export interface IAppMenuItem {
-    key: string;
+    id: string;
     title: string;
     route: string;
 }
 
 export interface IAppModule {
-    key: string;
-    title: string;
-    configurator?: (config: any, save: (config: any) => Promise<any>) => React.ReactNode;
-    renderer: (config: any) => React.ReactNode;
+    id: string;
+    name: string;
+    configurator?: (config: any, save: (config: any) => Promise<void>) => React.ReactNode;
+    renderer: (key: string, config: any, attributes: Record<string,string>) => React.ReactNode;
 }
 
 export type IAppMenu = IAppMenuGroup | IAppMenuItem

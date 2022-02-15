@@ -2,8 +2,8 @@
 
 module.exports = {
     entry: {
-        main: path.join(__dirname, "Scripts", "app/index.tsx"),
-        dep: path.join(__dirname, "Scripts", "dependencies/index-dep.tsx"),
+        main: path.join(__dirname, "Scripts/App", "Index.tsx"),
+        extension: path.join(__dirname, "Scripts/Extension", "Index.tsx"),
         context: path.join(__dirname, "Scripts/Framework", "AppContext.tsx"),
         config: path.join(__dirname, "Scripts/Framework", "AppConfig.tsx"),
     },
@@ -44,6 +44,10 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.less']
+    },
+    externals: {
+        "react": "React",
+        "react-dom": "ReactDOM"
     },
     watch: true,
     mode: 'development',

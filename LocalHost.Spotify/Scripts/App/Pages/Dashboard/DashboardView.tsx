@@ -19,19 +19,70 @@ export class Dashboard extends React.Component{
 
         var config = [
             {
-                moduleKey: "message",
-                moduleConfig: {
-                    text: "test"
+                module: "message",
+                config: {
+                    text: "News",
                 },
-                display: {
-                    size: "big"
+                attributes: {
+                    width: 2,
+                    height: 2
                 }
-            }
+            },
+            {
+                module: "message",
+                config: {
+                    text: "Hours",
+                },
+                attributes: {
+                    width: 1,
+                    height: 1
+                }
+            },
+            {
+                module: "info",
+                config: {
+                    text: "Image of the day",
+                },
+                attributes: {
+                    width: 1,
+                    height: 1
+                }
+            },
+            {
+                module: "message",
+                config: {
+                    text: "Projects",
+                },
+                attributes: {
+                    width: 2,
+                    height: 1
+                }
+            },
+            {
+                module: "message",
+                config: {
+                    text: "Orders",
+                },
+                attributes: {
+                    width: 2,
+                    height: 1
+                }
+            },
+            {
+                module: "message",
+                config: {
+                    text: "Invoices",
+                },
+                attributes: {
+                    width: 2,
+                    height: 1
+                }
+            },
         ];
 
-        var modules = _.map(config, (c) => {
-            var module: IAppModule = _.find(this.context.modules, (m: IAppModule) => m.key == c.moduleKey);
-            if (module != null) return module.renderer(c.moduleConfig);
+        var modules = _.map(config, (c, i) => {
+            var module: IAppModule = _.find(this.context.modules, (m: IAppModule) => m.id == c.module);
+            if (module != null) return module.renderer(`module-${i}`, c.config, c.attributes);
         });
 
         return (

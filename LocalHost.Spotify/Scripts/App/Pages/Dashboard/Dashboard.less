@@ -1,5 +1,29 @@
 ﻿@import '../../../../Styles/_variables.less';
 
-.dashboard{
-    
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+
+    .module {
+
+        .generate-columns(@n, @i: 1) when (@i =< @n) {
+            &[data-width="@{i}"] {
+                grid-column: span @i;
+            }
+
+            .generate-columns(@n, (@i + 1));
+        }
+
+        .generate-rows(@n, @i: 1) when (@i =< @n) {
+            &[data-height="@{i}"] {
+                grid-row: span @i;
+            }
+
+            .generate-rows(@n, (@i + 1));
+        }
+
+        .generate-columns(4);
+        .generate-rows(2);
+    }
 }

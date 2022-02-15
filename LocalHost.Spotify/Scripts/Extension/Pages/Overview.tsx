@@ -2,7 +2,7 @@
 import AppContext from "../../Framework/AppContext";
 import Page from "../../Framework/Containers/Page";
 
-export default class DependencyOverview extends React.Component {
+export default class Overview extends React.Component {
     static contextType = AppContext;
     context!: React.ContextType<typeof AppContext>;
 
@@ -12,7 +12,7 @@ export default class DependencyOverview extends React.Component {
 
     render() {
         return (
-            <Page className="dependency">Dependency overview for {this.context.currentUser.name}</Page>
+            <Page className="extension-overview">Overview for {this.context.currentUser.name}</Page>
         );
     }
 }

@@ -7,9 +7,10 @@
   <ItemGroup>
     <None Remove="Scripts\App\AppConfig.tsx" />
     <None Remove="Scripts\App\Pages\Artists\ArtistsView.tsx" />
-    <None Remove="Scripts\Framework\Modules\Message.tsx" />
+    <None Remove="Scripts\App\Modules\Message.tsx" />
     <None Remove="Scripts\App\Pages\Dashboard.tsx" />
-    <None Remove="Scripts\Dependencies\Pages\DependencyOverview.tsx" />
+    <None Remove="Scripts\Extension\Modules\Info.tsx" />
+    <None Remove="Scripts\Extension\Pages\Overview.tsx" />
     <None Remove="Scripts\Framework\Containers\Layout.tsx" />
     <None Remove="Scripts\Framework\Containers\Module.tsx" />
     <None Remove="Scripts\Framework\Containers\page.tsx" />
@@ -31,13 +32,14 @@
     <TypeScriptCompile Include="Scripts\App\Pages\Artists\ArtistsView.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Scripts\Framework\Modules\Message\MessageView.tsx">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\App\Modules\Message.tsx" />
     <TypeScriptCompile Include="Scripts\App\Pages\Dashboard\DashboardView.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Scripts\Dependencies\Pages\DependencyOverview.tsx">
+    <TypeScriptCompile Include="Scripts\Extension\Modules\Info.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\Extension\Pages\Overview.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Scripts\Framework\Containers\Module.tsx">
