@@ -12,3 +12,30 @@ namespace LocalHost.Spotify.Config
         public string Authority { get; set; }
     }
 }
+//{
+//    "iisSettings": {
+//        "windowsAuthentication": false,
+//    "anonymousAuthentication": true,
+//    "iisExpress": {
+//            "applicationUrl": "http://localhost:58739/",
+//      "sslPort": 44305
+//    }
+//    },
+//  "profiles": {
+//        "IIS Express": {
+//            "commandName": "IISExpress",
+//      "launchBrowser": true,
+//      "environmentVariables": {
+//                "ASPNETCORE_ENVIRONMENT": "Development"
+//      }
+//        },
+//    "LocalHost.Spotify": {
+//            "commandName": "Project",
+//      "launchBrowser": true,
+//      "environmentVariables": {
+//                "ASPNETCORE_ENVIRONMENT": "Development"
+//      },
+//      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+//    }
+//    }
+//}
